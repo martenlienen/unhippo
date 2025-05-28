@@ -1,0 +1,17 @@
+_target_: unhippo.data.free_spoken_digits.FSDDataModule
+
+root: data/free_spoken_digits
+name: fsd
+
+n_features: 1
+n_classes: 10
+l_max: 8000
+
+train_noise: ~
+eval_noises: ${.train_noise}
+
+batch_size: 16
+eval_batch_size: 16
+on_device: yes
+
+mem_gb: 24

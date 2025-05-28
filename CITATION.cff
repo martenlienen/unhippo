@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+title: unhippo
+type: software
+authors:
+  - given-names: Marten
+    family-names: Lienen
+    email: m.lienen@tum.de
+  - given-names: Abdullah
+    family-names: Saydemir
+    email: a.saydemir@tum.de
+  - given-names: Stephan
+    family-names: Günnemann
+    email: s.guennemann@tum.de
+repository-code: "https://github.com/martenlienen/unhippo"
+license: MIT
+preferred-citation:
+  type: conference-paper
+  title: "UnHiPPO: Uncertainty-aware Initialization for State Space Models"
+  authors:
+    - given-names: Marten
+      family-names: Lienen
+      email: m.lienen@tum.de
+    - given-names: Abdullah
+      family-names: Saydemir
+      email: a.saydemir@tum.de
+    - given-names: Stephan
+      family-names: Günnemann
+      email: s.guennemann@tum.de
+  collection-title: "International Conference on Machine Learning"
+  year: 2025
+  url: "https://openreview.net/forum?id=U8GUmxnzXn"

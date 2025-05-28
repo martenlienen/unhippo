@@ -1,0 +1,21 @@
+defaults:
+  - submitit_slurm
+
+qos: ???
+partition: ???
+
+gres: gpu:1
+
+cpus_per_task: 4
+mem_gb: ${data.mem_gb}
+
+timeout_min: ${timeout_min}
+
+# Try to disarm submitit's requeuing mechanism
+signal_delay_s: 0
+max_num_timeout: 0
+
+# Send USR1, so that lightning takes care of the requeuing instead of submitit (which
+# listens for USR2).
+additional_parameters:
+  signal: USR1@120

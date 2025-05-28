@@ -1,0 +1,6 @@
+defaults:
+  - lssl
+
+name: lssl-fixed
+
+trainable: no

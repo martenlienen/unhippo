@@ -1,0 +1,32 @@
+# @package _global_
+
+defaults:
+  - override /data: sc10
+  - override /task: classification
+
+hydra:
+  sweeper:
+    params:
+      seed: 6465795515163269798,7480359617790568378,4682161799934225354
+      model.obs_sigma2: 1e0,1e2,1e4,1e6,1e8,1e10,1e12,1e14
+      model: unlssl/fixed
+
+seed: ???
+eval_testset: yes
+
+name: ${model.name}-sigma2:${model.obs_sigma2}
+exp: unhippo-${data.name}-sigma2
+
+data:
+  train_noise: 0.1
+
+model:
+  n_layers: 4
+  n: 128
+  hidden_channels: 128
+  n_latent_channels: 4
+  dropout: 0.1
+
+trainer:
+  max_steps: 100000
+  val_check_interval: 100000

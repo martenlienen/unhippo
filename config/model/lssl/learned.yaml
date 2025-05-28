@@ -1,0 +1,6 @@
+defaults:
+  - lssl
+
+name: lssl-learn
+
+trainable: yes

@@ -1,0 +1,6 @@
+defaults:
+  - sc
+
+name: sc10
+n_classes: 10
+all_classes: no

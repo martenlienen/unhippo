@@ -1,0 +1,6 @@
+defaults:
+  - sc
+
+name: sc35
+n_classes: 35
+all_classes: yes

@@ -1,0 +1,6 @@
+defaults:
+  - unlssl
+
+name: unlssl-fixed
+
+trainable: no

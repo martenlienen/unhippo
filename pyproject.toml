@@ -1,0 +1,99 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[project]
+name = "unhippo"
+version = "0.1.0"
+description = "UnHiPPO: Uncertainty-aware Initialization for State Space Models"
+authors = [
+  {name = "Marten Lienen", email = "m.lienen@tum.de"},
+  {name = "Abdullah Saydemir", email = "a.saydemir@tum.de"}
+]
+requires-python = ">= 3.13"
+license = {text = "MIT"}
+dependencies = [
+  # PyTorch etc.
+  "torchmetrics==1.7.1",
+  "lightning==2.5.1.post0",
+  "jaxtyping==0.3.2",
+  "einops==0.8.1",
+
+  # General science & ml
+  "numpy==2.2.5",
+  "scipy==1.15.2",
+  "scikit-learn==1.6.1",
+  "pandas==2.2.3",
+
+  # Plotting & visualization
+  "matplotlib==3.10.1",
+
+  # hydra & logging
+  "hydra-core==1.3.2",
+  "hydra-submitit-launcher==1.2.0",
+  "wandb==0.19.10",
+
+  # Utilities
+  "tqdm==4.67.1",
+  "rich==14.0.0",
+  "ipython==9.2.0",
+  "ipdb==0.13.13",
+  "jupyterlab==4.4.1",
+  "ipympl==0.9.7",
+  "torchdata==0.11.0",
+]
+
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[tool.pixi.pypi-dependencies]
+unhippo = { path = ".", editable = true }
+brezn = { git = "https://github.com/martenlienen/brezn.git"}
+
+[tool.pixi.feature.cpu.pypi-dependencies]
+torch = { version = "==2.7.0", index = "https://download.pytorch.org/whl/cpu" }
+torchaudio = { version = "==2.7.0", index = "https://download.pytorch.org/whl/cpu" }
+
+[tool.pixi.feature.gpu.pypi-dependencies]
+torch = { version = "==2.7.0", index = "https://download.pytorch.org/whl/cu126" }
+torchaudio = { version = "==2.7.0", index = "https://download.pytorch.org/whl/cu126" }
+
+[tool.pixi.environments]
+default = {features = ["gpu"]}
+cpu = {features = ["cpu"]}
+
+[tool.pixi.dependencies]
+python = "==3.13.3"
+# Required as a torchaudio backend
+ffmpeg = "==7.1.1"
+
+[tool.ruff]
+line-length = 90
+
+[tool.ruff.lint]
+ignore = ["F722", "F821"]
+
+[tool.ruff.lint.isort]
+known-third-party = ["wandb"]
+
+[tool.brezn]
+# Directory that brezn should put its internal files and saved environments into
+dir = ".brezn"
+# Rules in the .gitignore format about which files should be included in the saved environments
+files = [
+  "train.py",
+  "/config",
+  "/unhippo",
+  "/scripts",
+]
+# Rules to select files that should be symlinked into the saved environment. These files are not
+# considered in checking if a change occurred and a new environment has to be created.
+symlinks = [
+  "data/",
+  "notebooks/",
+  "outputs/",
+  "multirun/",
+  "wandb/",
+  "checkpoints/",
+]

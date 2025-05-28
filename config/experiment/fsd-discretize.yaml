@@ -1,0 +1,33 @@
+# @package _global_
+
+defaults:
+  - override /data: fsd
+  - override /task: classification
+
+hydra:
+  sweeper:
+    params:
+      seed: 2079620626566370512,8758205724998274874,6777145777478081337
+      model.discretization_method: expm,bilinear,bilinear-lssl,forward,backward
+      model: unlssl/fixed
+
+seed: ???
+eval_testset: yes
+
+name: ${model.name}-${model.discretization_method}
+exp: unhippo-${data.name}-discretize
+
+data:
+  train_noise: 0.1
+
+model:
+  n_layers: 4
+  n: 256
+  hidden_channels: 256
+  n_latent_channels: 4
+  dropout: 0.1
+  obs_sigma2: 1e10
+
+trainer:
+  max_steps: 100000
+  val_check_interval: 100000

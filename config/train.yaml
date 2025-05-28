@@ -1,0 +1,44 @@
+defaults:
+  - data: aeon/scp1
+  - hydra: default
+  # Allow the model to overwrite the settings below
+  - _self_
+  - task: classification
+  - model: unlssl/fixed
+  - experiment: ~
+
+timeout_min: 600
+seed: ~
+eval_testset: no
+
+name: ~
+exp: exploring
+
+wandb:
+  id: ~
+  entity: ~
+  project: ${exp}
+  group: ~
+  name: ${name}
+  mode: ~
+
+hydra:
+  job:
+    name: ${exp}
+
+trainer:
+  accelerator: auto
+  devices: auto
+  precision: "32"
+
+  gradient_clip_val: 1.0
+
+  # Configure iteration-based training
+  max_steps: 1000000
+  val_check_interval: 100000
+  check_val_every_n_epoch: ~
+
+  log_every_n_steps: 50
+  num_sanity_val_steps: 1
+
+matmul_precision: medium

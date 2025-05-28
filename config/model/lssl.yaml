@@ -1,0 +1,17 @@
+_target_: unhippo.models.ssms.LSSL
+
+name: lssl
+
+n_layers: 6
+in_channels: ${data.n_features}
+out_channels: ${oc.select:data.n_classes,${oc.select:data.n_targets,""}}
+hidden_channels: 128
+n: 128
+trainable: ???
+n_latent_channels: 1
+krylov: yes
+# As in the LSSL paper
+min_t: 10
+max_t: 1000
+discretization_method: "bilinear-lssl"
+dropout: 0.0

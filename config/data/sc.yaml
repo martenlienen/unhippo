@@ -1,0 +1,19 @@
+_target_: unhippo.data.speech_commands.SpeechCommandsDataModule
+
+root: data/speech_commands
+name: ???
+
+n_features: 1
+n_classes: ???
+l_max: 16000
+
+all_classes: ???
+
+train_noise: ~
+eval_noises: ${.train_noise}
+
+batch_size: 16
+eval_batch_size: ${.batch_size}
+on_device: yes
+
+mem_gb: 24

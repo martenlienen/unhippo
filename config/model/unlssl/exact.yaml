@@ -1,0 +1,9 @@
+defaults:
+  - unlssl
+
+_target_: unhippo.models.ssms.ExactUnLSSL
+
+name: unlssl-learn
+
+max_steps: ${data.l_max}
+trainable: no

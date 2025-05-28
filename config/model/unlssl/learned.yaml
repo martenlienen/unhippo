@@ -1,0 +1,6 @@
+defaults:
+  - unlssl
+
+name: unlssl-learn
+
+trainable: yes

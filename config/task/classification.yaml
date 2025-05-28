@@ -1,0 +1,12 @@
+_target_: unhippo.tasks.classification.SequenceClassification
+_recursive_: no
+
+use_ema: yes
+
+optimizer:
+  name: adam
+  lr: 1e-3
+  # Needs to be tiny for stability
+  ssm_matrix_lr: 1e-8
+
+n_classes: ${data.n_classes}
