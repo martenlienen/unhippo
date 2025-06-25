@@ -6,6 +6,8 @@ https://openreview.net/forum?id=U8GUmxnzXn
 
 https://arxiv.org/abs/2506.05065
 
+<p align="center"><img src="figures/denoised-reconstruction.webp"></p>
+
 This repository contains the code that produced the results in the paper.
 Feel free to build upon this or take bits and pieces for your own project with proper attribution, see [Citation](#Citation) below.
 
